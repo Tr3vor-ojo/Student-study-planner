@@ -1,6 +1,12 @@
 import os
+from assignment import Assignment
+from assignments import Assignments
+
+a1 = Assignments()
+a1.load_assignments()
 
 def display_menu():
+    os.system("cls")
     print ("Student planner\n")
     print('1. Add Assignment')
     print('2. View Assignments')
@@ -18,8 +24,11 @@ def option_selection():
     match menu_option:
         case 1:
             os.system("cls")
+            a1.add_assignment()
+            a1.save_assignments()
         case 2:
             os.system("cls")
+            a1.view_assignments()
         case 3:
             os.system("cls")
         case 4:
@@ -27,12 +36,17 @@ def option_selection():
         case 5:
             os.system("cls")
         case 6:
-            os.system("cls")
+            print('Goodbye User!')
+            return False
         case _:
             print('Invalid option, pick a number between 1 - 6')
 
-            option_selection()
+    input("\nPress Enter to continue...")
 
 
-# display_menu()
-# option_selection()
+while True:
+
+    display_menu()
+
+    if option_selection() == False:
+        break

@@ -1,1 +1,16 @@
-[]
+[
+    {
+        "title": "w",
+        "course": "w",
+        "due_date": "1",
+        "priority": 2,
+        "completed_status": false
+    },
+    {
+        "title": "e",
+        "course": "e",
+        "due_date": "3",
+        "priority": 3,
+        "completed_status": false
+    }
+]
