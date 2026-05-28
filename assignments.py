@@ -56,19 +56,19 @@ class Assignments:
         with open("assignments.json", "w") as file:
             json.dump(data, file, indent=4)
 
-def load_assignments(self):
-    with open("assignments.json", "r") as file:
-        data = json.load(file)
+    def load_assignments(self):
+        with open("assignments.json", "r") as file:
+            data = json.load(file)
 
-        for assignment_data in data:
-            assignment = Assignment(
-                assignment_data["title"],
-                assignment_data["course"],
-                assignment_data["due_date"],
-                assignment_data["priority"]
-            )
-            assignment.completed_status = assignment_data["completed_status"]
+            for assignment_data in data:
+                assignment = Assignment(
+                    assignment_data["title"],
+                    assignment_data["course"],
+                    assignment_data["due_date"],
+                    assignment_data["priority"]
+                )
+                assignment.completed_status = assignment_data["completed_status"]
 
-            self.assignment_list.append(assignment)
+                self.assignment_list.append(assignment)
 
 # Handled assignment logic. Error with load_assignment method which is affecting main. Clean up syntax and flow of the program 
