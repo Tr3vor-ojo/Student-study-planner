@@ -1,9 +1,12 @@
 import os
 from assignment import Assignment
 from assignments import Assignments
+from classes import Classes
 
 a1 = Assignments()
 a1.load_assignments()
+c1 = Classes()
+c1.load_classes()
 
 def display_menu():
     os.system("cls")
@@ -30,8 +33,11 @@ def option_selection():
             a1.view_assignments()
         case 3:
             os.system("cls")
+            c1.add_class()
+            c1.save_classes()
         case 4:
             os.system("cls")
+            c1.view_classes
         case 5:
             os.system("cls")
         case 6:

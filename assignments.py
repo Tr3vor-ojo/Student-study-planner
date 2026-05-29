@@ -50,7 +50,7 @@ class Assignments:
         print(f"\n{len(self.assignment_list) + 1}. edit assignment")
         print(f"{len(self.assignment_list) + 2}. remove assignment")
 
-        selection = int(input("Select an assignment/action or any character out of the index to go back to the main menu: "))
+        selection = int(input("Select an assignment/action or any number out of the index to go back to the main menu: "))
         if selection <= len(self.assignment_list):
             chosen_assignment = self.assignment_list[selection - 1]
 
