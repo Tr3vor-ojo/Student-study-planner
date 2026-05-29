@@ -1,4 +1,4 @@
-from classs import Class
+from our_class import Class
 import json
 import os
 

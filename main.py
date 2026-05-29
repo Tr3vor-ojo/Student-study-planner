@@ -37,7 +37,7 @@ def option_selection():
             c1.save_classes()
         case 4:
             os.system("cls")
-            c1.view_classes
+            c1.view_classes()
         case 5:
             os.system("cls")
         case 6:
