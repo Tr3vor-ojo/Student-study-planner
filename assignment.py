@@ -23,3 +23,18 @@ class Assignment:
             f"priority: {self.priority}\n"
             f"completed_status: {self.completed_status}"
         )
+    
+    def set_priority(self, p):
+        self.priority = p
+    
+    def set_title(self, t):
+        self.title = t
+
+    def set_course(self, c):
+        self.course = c
+
+    def set_due_date(self, d):
+        self.due_date = d
+    
+    def set_completed_status(self, cs):
+        self.completed_status = cs

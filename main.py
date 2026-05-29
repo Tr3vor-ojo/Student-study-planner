@@ -18,7 +18,6 @@ def display_menu():
     
 
 def option_selection():
-    menu_option = None
     menu_option = int(input('Select a menu option 1 - 6: '))
 
     match menu_option:
@@ -41,7 +40,6 @@ def option_selection():
         case _:
             print('Invalid option, pick a number between 1 - 6')
 
-    input("\nPress Enter to continue...")
 
 
 while True:

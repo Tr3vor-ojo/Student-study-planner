@@ -1,16 +1,16 @@
 [
     {
-        "title": "w",
-        "course": "w",
-        "due_date": "1",
+        "title": "Deji Omotoibo",
+        "course": "t",
+        "due_date": "2",
         "priority": 2,
         "completed_status": false
     },
     {
-        "title": "e",
-        "course": "e",
-        "due_date": "3",
-        "priority": 3,
+        "title": "3",
+        "course": "3",
+        "due_date": "4",
+        "priority": "LOW",
         "completed_status": false
     }
 ]
