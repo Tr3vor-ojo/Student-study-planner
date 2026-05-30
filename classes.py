@@ -93,9 +93,16 @@ class Classes:
             json.dump(data, file, indent=4)
 
     def load_classes(self):
-        with open("classes.json", "r") as file:
             try:
-                data = json.load(file)
+                with open("classes.json", "r") as file:
+                    data = json.load(file)
+
+            except FileNotFoundError:
+                with open("classes.json", "w") as file:
+                    json.dump([], file)
+
+                data = []
+
             except json.JSONDecodeError:
                 data = []
 

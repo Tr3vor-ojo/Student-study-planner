@@ -33,9 +33,19 @@ class Assignments:
             choice = input("Do you want to remove this assignment Y/N? ")
             choice = choice.upper()
             if choice == 'Y':
-                index = int(input('What is the index of the assignment you wish to delete? '))
-                self.assignment_list.pop(index - 1)
-                self.save_assignments()
+                while True:
+                    try:
+                        index = int(input('What is the index of the assignment you wish to delete? '))
+                        if index < 1 or index > len(self.assignment_list):
+                            raise IndexError
+                        
+                        self.assignment_list.pop(index - 1)
+                        self.save_assignments()
+                        break
+                    except IndexError:
+                        print('There is no assignment at that index.')
+                    except ValueError:
+                        print('Kindly enter a number.')
                 break
             elif choice == 'N':
                 self.view_assignments()
@@ -46,20 +56,28 @@ class Assignments:
 
     def view_assignments(self):
         os.system("cls")
-        for i, assignment in enumerate(self.assignment_list):
-            print(f"{i + 1}. {assignment.title} | Due: {assignment.due_date}")
-        print(f"\n{len(self.assignment_list) + 1}. edit assignment")
-        print(f"{len(self.assignment_list) + 2}. remove assignment")
+        while True:
+            for i, assignment in enumerate(self.assignment_list):
+                print(f"{i + 1}. {assignment.title} | Due: {assignment.due_date}")
+            print(f"\n{len(self.assignment_list) + 1}. edit assignment")
+            print(f"{len(self.assignment_list) + 2}. remove assignment")
+            while True:
+                try:
+                    selection = int(input("Select an assignment/action or any number out of the index to go back to the main menu: "))
+                    break
+                except ValueError:
+                    print('Kindly enter numbers only.')
+            
+            if selection < 1:
+                break
+            elif selection <= len(self.assignment_list):
+                chosen_assignment = self.assignment_list[selection - 1]
 
-        selection = int(input("Select an assignment/action or any number out of the index to go back to the main menu: "))
-        if selection <= len(self.assignment_list):
-            chosen_assignment = self.assignment_list[selection - 1]
-
-            print(f'{chosen_assignment.to_string()}')
-        elif (selection - 1) == len(self.assignment_list):
-            self.edit_assignment()
-        elif (selection - 2) == len(self.assignment_list):
-            self.remove_assignment()
+                print(f'{chosen_assignment.to_string()}')
+            elif (selection - 1) == len(self.assignment_list):
+                self.edit_assignment()
+            elif (selection - 2) == len(self.assignment_list):
+                self.remove_assignment()
     
     def save_assignments(self):
         data = []
@@ -71,8 +89,18 @@ class Assignments:
             json.dump(data, file, indent=4)
 
     def load_assignments(self):
-        with open("assignments.json", "r") as file:
-            data = json.load(file)
+            try:
+                with open("assignments.json", "r") as file:
+                    data = json.load(file)
+
+            except FileNotFoundError:
+                with open("assignments.json", "w") as file:
+                    json.dump([], file)
+
+                data = []
+
+            except json.JSONDecodeError:
+                data = []
 
             for assignment_data in data:
                 assignment = Assignment(
@@ -97,7 +125,12 @@ class Assignments:
         print('\n')
     
     def edit_option_selection(self, assignment):
-        menu_option = int(input('Select a menu option 1 - 6: '))
+        while True:
+            try:
+                menu_option = int(input('Select a menu option 1 - 6: '))
+                break
+            except ValueError:
+                print('Kindly enter a number.')
 
         match menu_option:
             case 1:
@@ -120,8 +153,12 @@ class Assignments:
                 os.system("cls")
                 print("1. Completed")
                 print("2. Not Completed")
-
-                choice = int(input("Select an option: "))
+                while True:
+                    try:
+                        choice = int(input("Select an option: "))
+                        break
+                    except ValueError:
+                        print('Kindly enter numbers only.')
 
                 if choice == 1:
                     assignment.set_completed_status(True)
@@ -140,8 +177,21 @@ class Assignments:
 
 
     def edit_assignment(self):
-        choice_index = int(input("What's the index of the assignment you wish to edit? ")) - 1
-        choice = self.assignment_list[choice_index]
+        while True:
+            try:
+                choice_index = int(input("What's the index of the assignment you wish to edit? ")) - 1
+
+                if choice_index < 0 or choice_index >= len(self.assignment_list):
+                    raise IndexError
+                
+                choice = self.assignment_list[choice_index]
+                break
+
+            except ValueError:
+                print('Kindly enter a number.')
+
+            except IndexError:
+                print("There's no assignment at that index")
         while True:
             os.system("cls")
             self.display_edit_options()
