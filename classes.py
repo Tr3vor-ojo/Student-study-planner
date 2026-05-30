@@ -65,23 +65,32 @@ class Classes:
                 print(f"{i + 1}. {c.course_name} | {c.days} | {c.time}")
             print(f"\n{len(self.class_list) + 1}. edit class")
             print(f"{len(self.class_list) + 2}. remove class")
+            print(f"{len(self.class_list) + 3}. back")
             while True:
                 try:
-                    selection = int(input("Select a class/action or any number out of the index to go back to the main menu: "))
+                    selection = int(input("Select a class/action: "))
                     break
                 except ValueError:
                     print('Kindly enter numbers only.')
 
             if selection < 1:
                 break
+            elif selection > (len(self.class_list)+3):
+                print('There is nothing at that index.')
+                continue
             elif selection <= len(self.class_list):
+                os.system("cls")
                 chosen_class = self.class_list[selection - 1]
 
                 print(f'{chosen_class.to_string()}')
+                input("\nPress Enter to continue...")
+                os.system("cls")
             elif (selection - 1) == len(self.class_list):
                 self.edit_class()
             elif (selection - 2) == len(self.class_list):
                 self.remove_class()
+            elif (selection - 3) == len(self.class_list):
+                break
     
     def save_classes(self):
         data = []

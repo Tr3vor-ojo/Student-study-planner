@@ -61,6 +61,7 @@ class Assignments:
                 print(f"{i + 1}. {assignment.title} | Due: {assignment.due_date}")
             print(f"\n{len(self.assignment_list) + 1}. edit assignment")
             print(f"{len(self.assignment_list) + 2}. remove assignment")
+            print(f"{len(self.assignment_list) + 3}. back")
             while True:
                 try:
                     selection = int(input("Select an assignment/action or any number out of the index to go back to the main menu: "))
@@ -70,14 +71,22 @@ class Assignments:
             
             if selection < 1:
                 break
+            elif selection > (len(self.assignment_list)+3):
+                print('There is nothing at this index.')
+                continue
             elif selection <= len(self.assignment_list):
+                os.system("cls")
                 chosen_assignment = self.assignment_list[selection - 1]
 
                 print(f'{chosen_assignment.to_string()}')
+                input("\nPress enter to continue...")
+                os.system("cls")
             elif (selection - 1) == len(self.assignment_list):
                 self.edit_assignment()
             elif (selection - 2) == len(self.assignment_list):
                 self.remove_assignment()
+            elif (selection - 3) == len(self.assignment_list):
+                break
     
     def save_assignments(self):
         data = []
