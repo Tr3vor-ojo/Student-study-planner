@@ -24,7 +24,7 @@ class Classes:
             self.class_list.append(c)
             self.save_classes()
 
-            choice = input("\nEnter 1 if you'd like to add another class or any number out of the index to go back to the main menu: ")
+            choice = input("\nEnter 1 if you'd like to add another class or any character to go back to the main menu: ")
 
             if choice != '1':
                 break
@@ -34,9 +34,22 @@ class Classes:
             choice = input("Do you want to remove this class Y/N? ")
             choice = choice.upper()
             if choice == 'Y':
-                index = int(input('What is the index of the class you wish to delete? '))
-                self.class_list.pop(index - 1)
-                self.save_classes()
+                while True:
+                    try:
+                        index = int(input('What is the index of the class you wish to delete? '))
+                        if index < 1 or index > len(self.class_list):
+                            raise IndexError
+                        
+                        self.class_list.pop(index - 1)
+                        self.save_classes()
+                        break
+
+                    except IndexError:
+                        print('There is no class at that index.')
+
+                    except ValueError:
+                        print('Kindly enter a number.')
+
                 break
             elif choice == 'N':
                 self.view_classes()
@@ -46,20 +59,29 @@ class Classes:
 
 
     def view_classes(self):
-        for i, c in enumerate(self.class_list):
-            print(f"{i + 1}. {c.course_name} | {c.days} | {c.time}")
-        print(f"\n{len(self.class_list) + 1}. edit class")
-        print(f"{len(self.class_list) + 2}. remove class")
+        os.system("cls")
+        while True:
+            for i, c in enumerate(self.class_list):
+                print(f"{i + 1}. {c.course_name} | {c.days} | {c.time}")
+            print(f"\n{len(self.class_list) + 1}. edit class")
+            print(f"{len(self.class_list) + 2}. remove class")
+            while True:
+                try:
+                    selection = int(input("Select a class/action or any number out of the index to go back to the main menu: "))
+                    break
+                except ValueError:
+                    print('Kindly enter numbers only.')
 
-        selection = int(input("Select a class/action or any number out of the index to go back to the main menu: "))
-        if selection <= len(self.class_list):
-            chosen_class = self.class_list[selection - 1]
+            if selection < 1:
+                break
+            elif selection <= len(self.class_list):
+                chosen_class = self.class_list[selection - 1]
 
-            print(f'{chosen_class.to_string()}')
-        elif (selection - 1) == len(self.class_list):
-            self.edit_class()
-        elif (selection - 2) == len(self.class_list):
-            self.remove_class()
+                print(f'{chosen_class.to_string()}')
+            elif (selection - 1) == len(self.class_list):
+                self.edit_class()
+            elif (selection - 2) == len(self.class_list):
+                self.remove_class()
     
     def save_classes(self):
         data = []
@@ -72,7 +94,10 @@ class Classes:
 
     def load_classes(self):
         with open("classes.json", "r") as file:
-            data = json.load(file)
+            try:
+                data = json.load(file)
+            except json.JSONDecodeError:
+                data = []
 
             for class_data in data:
                 c = Class(
@@ -97,7 +122,12 @@ class Classes:
         print('\n')
     
     def edit_option_selection(self, selected_class):
-        menu_option = int(input('Select a menu option 1 - 6: '))
+        while True:
+            try:
+                menu_option = int(input('Select a menu option 1 - 6: '))
+                break
+            except ValueError:
+                print('Kindly enter a number.')
 
         match menu_option:
             case 1:
@@ -110,6 +140,7 @@ class Classes:
                 self.save_classes()
             case 3:
                 new_days = input('What do you wish to change the class days to: ')
+                new_days = new_days.upper()
                 selected_class.set_days(new_days)
                 self.save_classes()
             case 4:
@@ -130,8 +161,20 @@ class Classes:
 
 
     def edit_class(self):
-        choice_index = int(input("What's the index of the class you wish to edit? ")) - 1
-        choice = self.class_list[choice_index]
+        while True:
+            try:
+                choice_index = int(input("What's the index of the class you wish to edit? ")) - 1
+
+                if choice_index < 0 or choice_index > len(self.class_list):
+                    raise IndexError
+                
+                choice = self.class_list[choice_index]
+                break
+            except ValueError:
+                print('Kindly enter a number.')
+
+            except IndexError:
+                print("There's no class at that index.")
         while True:
             os.system("cls")
             self.display_edit_options()
@@ -139,3 +182,4 @@ class Classes:
             if self.edit_option_selection(choice) == False:
                 break
 
+#fix indexerror for view assignment when selection is less negative

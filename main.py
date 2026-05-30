@@ -23,7 +23,12 @@ def display_menu():
     
 
 def option_selection():
-    menu_option = int(input('Select a menu option 1 - 6: '))
+    while True:
+        try:
+            menu_option = int(input('Select a menu option 1 - 6: '))
+            break
+        except ValueError:
+            print("Please enter a valid number")
 
     match menu_option:
         case 1:

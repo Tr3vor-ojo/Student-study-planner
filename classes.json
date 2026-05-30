@@ -5,5 +5,12 @@
         "days": "MON,TUE,FRI,THU",
         "time": "12:10 pm",
         "location": "Sci 2010"
+    },
+    {
+        "course_name": "f",
+        "course_code": "f",
+        "days": "4",
+        "time": "2",
+        "location": "2"
     }
 ]

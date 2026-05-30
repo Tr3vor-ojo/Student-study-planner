@@ -23,7 +23,7 @@ class Assignments:
             self.assignment_list.append(assignment)
             self.save_assignments()
 
-            choice = input("\nEnter 1 if you'd like to add another assignment: ")
+            choice = input("\nEnter 1 if you'd like to add another assignment or any character to go back to the main menu: ")
 
             if choice != '1':
                 break
@@ -45,6 +45,7 @@ class Assignments:
 
 
     def view_assignments(self):
+        os.system("cls")
         for i, assignment in enumerate(self.assignment_list):
             print(f"{i + 1}. {assignment.title} | Due: {assignment.due_date}")
         print(f"\n{len(self.assignment_list) + 1}. edit assignment")

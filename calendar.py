@@ -16,7 +16,10 @@ class Calendar:
         for c in self.classes.class_list:
             for day in c.days.split(','):
                 day = day.strip()
-                schedule[day].append(c)
+                if day in schedule:
+                    schedule[day].append(c)
+                else:
+                    print(f"Invalid day: {day}")
     
         for day in schedule:
             if schedule[day]:
