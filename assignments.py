@@ -148,8 +148,4 @@ class Assignments:
             if self.edit_option_selection(choice) == False:
                 break
 
-
-    
-    
-
-# Handled assignment logic. Error with load_assignment method which is affecting main. Clean up syntax and flow of the program 
+ 

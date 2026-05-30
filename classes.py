@@ -10,7 +10,8 @@ class Classes:
         while True:
             course_name = input("Enter Course name: ")
             course_code = input("Enter course code: ")
-            days = input("Enter class days: ")
+            days = input("Enter class days (e.g. Mon or Mon,Wed,Fri): ")
+            days = days.upper()
             time = input("Enter class time: ")
             location = input("Enter class location: ")
 
@@ -23,7 +24,7 @@ class Classes:
             self.class_list.append(c)
             self.save_classes()
 
-            choice = input("\nEnter 1 if you'd like to add another class: ")
+            choice = input("\nEnter 1 if you'd like to add another class or any number out of the index to go back to the main menu: ")
 
             if choice != '1':
                 break
@@ -138,8 +139,3 @@ class Classes:
             if self.edit_option_selection(choice) == False:
                 break
 
-
-    
-    
-
-# Handled assignment logic. Error with load_assignment method which is affecting main. Clean up syntax and flow of the program 

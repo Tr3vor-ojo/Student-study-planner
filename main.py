@@ -1,12 +1,14 @@
 import os
-from assignment import Assignment
 from assignments import Assignments
 from classes import Classes
+from calendar import Calendar
 
-a1 = Assignments()
-a1.load_assignments()
-c1 = Classes()
-c1.load_classes()
+ass = Assignments()
+ass.load_assignments()
+cla = Classes()
+cla.load_classes()
+cal = Calendar(cla)
+
 
 def display_menu():
     os.system("cls")
@@ -26,22 +28,23 @@ def option_selection():
     match menu_option:
         case 1:
             os.system("cls")
-            a1.add_assignment()
-            a1.save_assignments()
+            ass.add_assignment()
+            ass.save_assignments()
         case 2:
             os.system("cls")
-            a1.view_assignments()
+            ass.view_assignments()
         case 3:
             os.system("cls")
-            c1.add_class()
-            c1.save_classes()
+            cla.add_class()
+            cla.save_classes()
         case 4:
             os.system("cls")
-            c1.view_classes()
+            cla.view_classes()
         case 5:
             os.system("cls")
+            cal.view_calendar()
         case 6:
-            print('Goodbye User!')
+            print('Goodbye User :)')
             return False
         case _:
             print('Invalid option, pick a number between 1 - 6')

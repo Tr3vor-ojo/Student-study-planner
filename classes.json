@@ -1,0 +1,9 @@
+[
+    {
+        "course_name": "math",
+        "course_code": "1010",
+        "days": "MON,TUE,FRI,THU",
+        "time": "12:10 pm",
+        "location": "Sci 2010"
+    }
+]
