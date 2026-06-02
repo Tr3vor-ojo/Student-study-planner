@@ -67,4 +67,4 @@ while True:
 
     if option_selection() == False:
         break
-#trevr is gay
+#Alvin is gay
