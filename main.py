@@ -68,5 +68,3 @@ while True:
     if option_selection() == False:
         break
 
-
-#Nifemi fucks ass
