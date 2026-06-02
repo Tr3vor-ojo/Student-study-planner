@@ -12,5 +12,12 @@
         "days": "4",
         "time": "2",
         "location": "2"
+    },
+    {
+        "course_name": "r",
+        "course_code": "r",
+        "days": "R",
+        "time": "r",
+        "location": "r"
     }
 ]

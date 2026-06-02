@@ -19,5 +19,26 @@
         "due_date": "26/07",
         "priority": "HIGH",
         "completed_status": false
+    },
+    {
+        "title": "",
+        "course": "",
+        "due_date": "",
+        "priority": "",
+        "completed_status": false
+    },
+    {
+        "title": "",
+        "course": "",
+        "due_date": "",
+        "priority": "",
+        "completed_status": false
+    },
+    {
+        "title": "",
+        "course": "",
+        "due_date": "",
+        "priority": "",
+        "completed_status": false
     }
 ]

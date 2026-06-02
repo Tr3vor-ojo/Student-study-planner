@@ -3,12 +3,17 @@ from assignments import Assignments
 from classes import Classes
 from calendar import Calendar
 
+# import time
+
+# start = time.time()
+
 ass = Assignments()
 ass.load_assignments()
 cla = Classes()
 cla.load_classes()
 cal = Calendar(cla)
 
+# print(time.time() - start)
 
 def display_menu():
     os.system("cls")
@@ -62,3 +67,6 @@ while True:
 
     if option_selection() == False:
         break
+
+
+#Nifemi sucks ass

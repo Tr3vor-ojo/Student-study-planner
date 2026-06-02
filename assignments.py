@@ -64,7 +64,7 @@ class Assignments:
             print(f"{len(self.assignment_list) + 3}. back")
             while True:
                 try:
-                    selection = int(input("Select an assignment/action or any number out of the index to go back to the main menu: "))
+                    selection = int(input("Select an assignment/action: "))
                     break
                 except ValueError:
                     print('Kindly enter numbers only.')
