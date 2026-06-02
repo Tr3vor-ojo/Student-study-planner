@@ -69,4 +69,4 @@ while True:
         break
 
 
-#Nifemi sucks ass
+#Nifemi fucks ass
