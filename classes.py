@@ -181,7 +181,7 @@ class Classes:
             try:
                 choice_index = int(input("What's the index of the class you wish to edit? ")) - 1
 
-                if choice_index < 0 or choice_index > len(self.class_list):
+                if choice_index < 0 or choice_index >= len(self.class_list):
                     raise IndexError
                 
                 choice = self.class_list[choice_index]
