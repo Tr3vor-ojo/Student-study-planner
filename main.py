@@ -1,7 +1,10 @@
-import os
+import os, sys
+# from PySide6.QtWidgets import QApplication
 from assignments import Assignments
 from classes import Classes
 from calendar import Calendar
+# from button_holder import Buttonholder
+
 
 # import time
 
@@ -39,14 +42,12 @@ def option_selection():
         case 1:
             os.system("cls")
             ass.add_assignment()
-            ass.save_assignments()
         case 2:
             os.system("cls")
             ass.view_assignments()
         case 3:
             os.system("cls")
             cla.add_class()
-            cla.save_classes()
         case 4:
             os.system("cls")
             cla.view_classes()
@@ -58,6 +59,7 @@ def option_selection():
             return False
         case _:
             print('Invalid option, pick a number between 1 - 6')
+    return True
 
 
 
@@ -67,4 +69,10 @@ while True:
 
     if option_selection() == False:
         break
+
+# app = QApplication(sys.argv)
+
+# window = Buttonholder()
+# window.show()
+app.exec()
 #Alvin is gay

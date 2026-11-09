@@ -30,7 +30,7 @@ class Assignments:
     
     def remove_assignment(self):
         while True:
-            choice = input("Do you want to remove this assignment Y/N? ")
+            choice = input("Do you want to remove an assignment Y/N? ")
             choice = choice.upper()
             if choice == 'Y':
                 while True:
@@ -116,9 +116,9 @@ class Assignments:
                     assignment_data["title"],
                     assignment_data["course"],
                     assignment_data["due_date"],
-                    assignment_data["priority"]
+                    assignment_data["priority"],
+                    assignment_data["completed_status"]
                 )
-                assignment.completed_status = assignment_data["completed_status"]
 
                 self.assignment_list.append(assignment)
 

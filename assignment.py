@@ -1,9 +1,9 @@
 class Assignment:
-    def __init__(self, title, course, due_date, priority):
+    def __init__(self, title, course, due_date, priority, completed_status = False):
         self.title = title
         self.course = course
         self.due_date = due_date
-        self.completed_status = False
+        self.completed_status = completed_status
         self.priority = priority
 
     def to_dict(self):
