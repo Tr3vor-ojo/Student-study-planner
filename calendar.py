@@ -15,7 +15,7 @@ class Calendar:
 
         for c in self.classes.class_list:
             for day in c.days.split(','):
-                day = day.strip()
+                day = day.strip().upper()
                 if day in schedule:
                     schedule[day].append(c)
                 else:
