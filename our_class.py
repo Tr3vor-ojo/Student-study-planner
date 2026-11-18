@@ -2,7 +2,7 @@ class Class:
     def __init__(self, course_name, course_code, days, time, location):
         self.course_name = course_name
         self.course_code = course_code
-        self.days = days
+        self.days = days.upper()
         self.location = location
         self.time = time
 
