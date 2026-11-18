@@ -2,7 +2,7 @@ class Calendar:
     def __init__(self, classes):
         self.classes = classes
 
-    def view_calendar(self):
+    def build_schedule(self):
         schedule = {
             'MON': [],
             'TUE': [],
@@ -20,7 +20,12 @@ class Calendar:
                     schedule[day].append(c)
                 else:
                     print(f"Invalid day: {day}")
+
+        return schedule
+
     
+    def view_calendar(self):
+        schedule = self.build_schedule()
         for day in schedule:
             if schedule[day]:
                 print(f'\n{day}')
