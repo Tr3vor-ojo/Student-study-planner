@@ -88,7 +88,27 @@ def prompt_new_class():
     return Class(course_name, course_code, days, time,location)
 
 
+def prompt_remove_class():
+    while True:
+        choice = input("Do you want to remove an class Y/N? ").upper()
+        if choice == 'Y':
+            return True
+        elif choice == 'N':
+            return False
+        else:
+            print("Enter 'Y' for yes and 'N' for no")
 
+def prompt_class_index(class_list):
+    while True:
+        try:
+            index = int(input('What is the index of the class you wish to delete? '))
+            if index < 1 or index > len(class_list):
+                raise IndexError
+            return index-1
+        except IndexError:
+            print('There is no class at that index.')
+        except ValueError:
+            print('Kindly enter a number.')
 
 def option_selection():
     while True:

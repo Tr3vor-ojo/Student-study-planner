@@ -9,7 +9,10 @@ class Classes:
     def add_class(self, cl):
             self.class_list.append(cl)
             self.save_classes()
-            
+
+    def remove_class(self, index):
+            self.class_list.pop(index - 1)
+            self.save_classes()            
     
     def remove_class(self):
         while True:
