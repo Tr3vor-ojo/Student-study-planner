@@ -6,28 +6,10 @@ class Classes:
     def __init__(self):
         self.class_list = []
 
-    def add_class(self):
-        while True:
-            course_name = input("Enter Course name: ")
-            course_code = input("Enter course code: ")
-            days = input("Enter class days (e.g. Mon or Mon,Wed,Fri): ")
-            days = days.upper()
-            time = input("Enter class time: ")
-            location = input("Enter class location: ")
-
-            c = Class(
-                course_name,
-                course_code,
-                days, time,
-                location
-            )
-            self.class_list.append(c)
+    def add_class(self, cl):
+            self.class_list.append(cl)
             self.save_classes()
-
-            choice = input("\nEnter 1 if you'd like to add another class or any character to go back to the main menu: ")
-
-            if choice != '1':
-                break
+            
     
     def remove_class(self):
         while True:

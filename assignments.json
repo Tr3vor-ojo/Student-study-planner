@@ -7,13 +7,6 @@
         "completed_status": false
     },
     {
-        "title": "3",
-        "course": "3",
-        "due_date": "4",
-        "priority": "LOW",
-        "completed_status": false
-    },
-    {
         "title": "math",
         "course": "math",
         "due_date": "26/07",
@@ -21,24 +14,17 @@
         "completed_status": false
     },
     {
-        "title": "",
-        "course": "",
-        "due_date": "",
-        "priority": "",
+        "title": "Discrete math for comp sci",
+        "course": "CSCI 2010",
+        "due_date": "12-11-2026",
+        "priority": "HIGH",
         "completed_status": false
     },
     {
-        "title": "",
-        "course": "",
-        "due_date": "",
-        "priority": "",
-        "completed_status": false
-    },
-    {
-        "title": "",
-        "course": "",
-        "due_date": "",
-        "priority": "",
+        "title": "worksheet 6",
+        "course": "scientific data analysis",
+        "due_date": "23-11-2026",
+        "priority": "HIGH",
         "completed_status": false
     }
 ]

@@ -2,6 +2,7 @@ import os, sys
 from assignments import Assignments
 from assignment import Assignment
 from classes import Classes
+from our_class import Class
 from calendar import Calendar
 
 
@@ -77,6 +78,17 @@ def prompt_field_value(field):
     return input(f"What do you wish to change the {field} to: ")
 
 
+def prompt_new_class():
+    course_name = input("Enter Course name: ")
+    course_code = input("Enter course code: ")
+    days = input("Enter class days (e.g. Mon or Mon,Wed,Fri): ")
+    days = days.upper()
+    time = input("Enter class time: ")
+    location = input("Enter class location: ")
+    return Class(course_name, course_code, days, time,location)
+
+
+
 
 def option_selection():
     while True:
@@ -87,14 +99,14 @@ def option_selection():
             print("Please enter a valid number")
 
     match menu_option:
-        case 1:
+        case 1:#add assignment
             os.system("cls")
             while True:
                 ass.add_assignment(prompt_new_assignment())
                 if input("\nEnter 1 to add another, any other character to return: ") != '1':
                     break
 
-        case 2:
+        case 2: #view assignments
             os.system("cls")
             for i, a in enumerate(ass.assignment_list):
                 print(f"{i + 1}. {a.title} | Due: {a.due_date}")
@@ -136,16 +148,22 @@ def option_selection():
             elif selection == BACK:
                 pass
 
-        case 3:
+        case 3:#add class
             os.system("cls")
-            cla.add_class()
-        case 4:
+            while True:
+                cla.add_class(prompt_new_class())
+                choice = input("\nEnter 1 if you'd like to add another class or any character to go back to the main menu: ")
+                
+                if choice != '1':
+                    break
+
+        case 4:#view classes
             os.system("cls")
             cla.view_classes()
-        case 5:
+        case 5:#view calendar
             os.system("cls")
             cal.view_calendar()
-        case 6:
+        case 6:#exit
             print('Goodbye User :)')
             return False
         case _:
